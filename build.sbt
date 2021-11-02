@@ -10,10 +10,14 @@ val typesafeConfigVersion = "1.4.1"
 val apacheCommonIOVersion = "2.11.0"
 val scalacticVersion = "3.2.9"
 val generexVersion = "1.0.2"
+val AWSJavaVersion = "1.12.90"
+val AWSJavaS3Version = "1.12.98"
 
 resolvers += Resolver.jcenterRepo
 
 libraryDependencies ++= Seq(
+  "com.amazonaws" % "aws-java-sdk" % AWSJavaVersion,
+  "com.amazonaws" % "aws-java-sdk-s3" % AWSJavaS3Version,
   "ch.qos.logback" % "logback-core" % logbackVersion,
   "ch.qos.logback" % "logback-classic" % logbackVersion,
   "org.slf4j" % "slf4j-api" % sfl4sVersion,
