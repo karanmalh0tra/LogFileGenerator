@@ -48,8 +48,8 @@ object GenerateLogData:
   }
   //Fetch S3 bucket name and key and log file path from config
   val bucket_name: String = config.getString("aws.S3_BUCKET_NAME")
-  val file_path: String = config.getString("aws.LOG_FILE_PATH")
-  val key_name: String =config.getString("aws.S3_KEY_NAME")
+  val file_path: String = config.getString("aws.LOG_FILE_PATH")+java.time.LocalDate.now+".log"
+  val key_name: String =config.getString("aws.S3_KEY_NAME")+java.time.LocalDate.now+".log"
   // The AWS ACCESS KEY ID and the AWS SECRET ACCESS KEY should be stored as environment variables in the Linux Machine
   val s3: AmazonS3 = AmazonS3ClientBuilder.standard
     .withRegion(Regions.US_EAST_1)
@@ -60,4 +60,3 @@ object GenerateLogData:
     case e: AmazonServiceException =>
       System.err.println(e)
   }
-
